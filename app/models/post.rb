@@ -7,6 +7,10 @@ class Post < ApplicationRecord
     Comment.where(post_id: id).order(created_at: :desc).limit(5)
   end
 
+  after_save :update_post_counts
+
+  private
+
   def update_post_counts
     author = User.find(author_id)
     author.post_count = Post.where(author_id: author.id).count
