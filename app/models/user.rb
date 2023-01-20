@@ -10,4 +10,3 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :postscounter, numericality: { only_integer: true }, allow_nil: true
 end
-

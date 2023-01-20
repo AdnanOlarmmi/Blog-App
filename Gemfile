@@ -71,7 +71,7 @@ end
 #   gem 'webdrivers'
 # end
 
-group :development, :test do  
+group :development, :test do
   gem 'rspec-rails'
 end
 

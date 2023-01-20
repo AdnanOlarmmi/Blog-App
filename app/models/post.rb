@@ -17,7 +17,7 @@ class Post < ApplicationRecord
     author.save
   end
 
-  validates :title, presence: true, Length: { maximum: 250}
+  validates :title, presence: true, Length: { maximum: 250 }
 
-  validates :commentscounter, :likescounter, numericality: { only_integer: true }, allow_nil: false
+  validates :commentscounter, :likescounter, numericality: { greater_than_or_equal_to: 0 }, allow_nil: false
 end
