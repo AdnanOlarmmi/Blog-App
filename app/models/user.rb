@@ -6,4 +6,7 @@ class User < ApplicationRecord
   def query_posts
     Post.where(author_id: id).order(created_at: :desc).limit(3)
   end
+
+  validations :name, presence: true
+  validations :postscounter, numericality { only_integer: true}, allow_nil: false
 end
