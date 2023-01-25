@@ -22,4 +22,11 @@ RSpec.describe "Posts", type: :request do
             expect(response).to render_template("posts/index")
         end
     end
+
+    describe "Render correct template" do
+        it "renders the show template" do
+            get user_post_path(1, 1)
+            expect(response).to render_template("posts/show")
+        end
+    end
 end
