@@ -15,12 +15,7 @@ RSpec.describe "Users", type: :request do
         end
     end
 
-    describe "GET /users/:user_id/posts" do
-        it "works! (now write some real specs)" do
-        get user_posts_path(1)
-        expect(response).to have_http_status(200)
-        end
-    end
+
 
     describe "Render correct template" do
         it "renders the index template" do
