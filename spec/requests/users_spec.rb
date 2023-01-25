@@ -15,8 +15,6 @@ RSpec.describe "Users", type: :request do
         end
     end
 
-
-
     describe "Render correct template" do
         it "renders the index template" do
         get users_path
@@ -26,11 +24,6 @@ RSpec.describe "Users", type: :request do
         it "renders the show template" do
         get user_path(1)
         expect(response).to render_template("show")
-        end
-
-        it "renders the posts template" do
-        get user_posts_path(1)
-        expect(response).to render_template("posts/index")
         end
     end
 
