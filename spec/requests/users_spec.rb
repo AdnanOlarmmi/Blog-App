@@ -1,15 +1,15 @@
 require 'rails_helper'
 
 RSpec.describe "Users", type: :request do
-    describe "GET /users" do
-        it "works! (now write some real specs)" do
+    describe "If response status was correct." do
+        it "If response status was correct for users" do
         get users_path
         expect(response).to have_http_status(200)
         end
     end
 
-    describe "GET /users/:id" do
-        it "works! (now write some real specs)" do
+    describe "If response status was correct." do
+        it "If response status was correct for users ID" do
         get user_path(1)
         expect(response).to have_http_status(200)
         end
@@ -27,4 +27,17 @@ RSpec.describe "Users", type: :request do
         end
     end
 
+    describe "Response body includes correct placeholder text" do
+        it "displays the correct placeholder text" do
+        get users_path
+        expect(response.body).to include("Here is the list of Users")
+        end
+    end
+
+    describe "Response body includes correct placeholder text" do
+        it "displays the correct placeholder text" do
+        get user_path(1)
+        expect(response.body).to include("Here is it")
+        end
+    end
 end

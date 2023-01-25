@@ -2,15 +2,15 @@ require 'rails_helper'
 
 
 RSpec.describe "Posts", type: :request do
-    describe "GET /users/:user_id/posts" do
-        it "works! (now write some real specs)" do
+    describe "If response status was correct." do
+        it "If response status was correct for user posts path" do
         get user_posts_path(1)
         expect(response).to have_http_status(200)
         end
     end
 
-    describe "GET /users/:user_id/posts/:id" do
-        it "works! (now write some real specs)" do
+    describe "If response status was correct." do
+        it "If response status was correct for user post path and user ID" do
         get user_post_path(1, 1)
         expect(response).to have_http_status(200)
         end
@@ -27,6 +27,20 @@ RSpec.describe "Posts", type: :request do
         it "renders the show template" do
             get user_post_path(1, 1)
             expect(response).to render_template("posts/show")
+        end
+    end
+
+    describe "Response body includes correct placeholder text" do
+        it "displays the correct placeholder text" do
+            get user_posts_path(1)
+            expect(response.body).to include("Here is the list of Posts")
+        end
+    end
+
+    describe "Response body includes correct placeholder text" do
+        it "displays the correct placeholder text" do
+            get user_post_path(1, 1)
+            expect(response.body).to include("Here is it")
         end
     end
 end
