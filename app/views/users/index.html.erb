@@ -10,9 +10,9 @@
   <body>
    <h1>Here is the list of Users<h1/>
     <ul>
-        <li>Adnan</li>
-        <li>Is-haq</li>
-        <li>Ola</li>
+    <% @users.each do |user| %>
+      <li><%= user.name %></li>
+    <% end %>
     </ul>
   </body>
 </html>
