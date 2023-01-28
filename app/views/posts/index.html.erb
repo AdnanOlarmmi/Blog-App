@@ -9,9 +9,18 @@
   <body>
    <h1>Here is the list of Posts<h1/>
     <ul>
-        <li>Adnan</li>
-        <li>Is-haq</li>
-        <li>Ola</li>
+    <li>
+    <% @posts.each do |post| %>
+      <a href='posts/<%= post.id %>'>
+      <%= post.text %>
+      </a>
+    </li>
+    <p>Comments:
+    <%= post.commentscounter %>
+      </p>
+      <p>likes: 3
+      </p>
+      <% end %>
     </ul>
   </body>
 </html>
