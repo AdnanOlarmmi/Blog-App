@@ -9,5 +9,12 @@
   <body>
    <h1> Post Info <h1/>
    <%= @post.text %>
+    <p>Comments:
+    <% @post.query_comments.each do |comment| %>
+    <%= comment.text %>
+    </p>
+    <p>likes: 3
+    </p>
+    <% end %>
   </body>
 </html>
