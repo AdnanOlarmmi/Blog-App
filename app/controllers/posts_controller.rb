@@ -10,7 +10,7 @@ class PostsController < ApplicationController
   def new
     @post = Post.new
     respond_to do |format|
-      format.html{ render :new, locals: { post: @post } }
+      format.html { render :new, locals: { post: @post } }
     end
   end
 
@@ -30,5 +30,4 @@ class PostsController < ApplicationController
       render :new
     end
   end
-
 end
