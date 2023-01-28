@@ -12,5 +12,3 @@ class Comment < ApplicationRecord
     post.save
   end
 end
-
-
