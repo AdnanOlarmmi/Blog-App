@@ -9,14 +9,14 @@
   <body>
    <h1> Post Info <h1/>
    <%= @post.text %>
-    <p>Comments:
+    <p>Comments: <%= @post.commentscounter || 0 %> <br>
     <% @post.query_comments.each do |comment| %>
     <%= comment.text %>
     </p>
-    <p>likes: 3
     </p>
     <% end %>
-
+    <p>likes: <%= @post.likescounter || 0 %>
+    <%= render "likes/like" %>
     <%= render "comments/comment" %>
   </body>
 </html>

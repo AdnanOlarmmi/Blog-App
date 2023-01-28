@@ -14,7 +14,7 @@
         <img  src="<%= @user.photo %>" alt="Avatar" />
          <h2><%= @user.name %></h2>
          <h6>
-         <p>Number of post(s): <%= @user.postscounter %></p>
+         <p>Number of post(s): <%= @user.postscounter || 0 %></p>
          </h6>
         </div>
     </section>
