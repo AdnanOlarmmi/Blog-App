@@ -1,0 +1,5 @@
+<h3> Add a new Comment to this post </h3>
+<%= form_with model: @comment, url: user_post_comments_path(@post.author_id, @post.id) do |f| %>
+    <%= f.text_area :text %>
+    <%= f.submit %>
+  <% end %>
