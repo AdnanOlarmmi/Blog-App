@@ -1,4 +1,5 @@
 require 'rails_helper'
+
 RSpec.describe Post, type: :model do
   context 'validations' do
     it 'is not valid without a title' do
