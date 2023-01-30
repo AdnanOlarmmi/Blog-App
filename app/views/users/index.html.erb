@@ -17,10 +17,8 @@
       <%= user.name %>
       <img  src="<%= user.photo %>" alt="Avatar" />
       </a>
-      <% if user.postscounter > 0 %>
-      <p>Posts: <%= user.postscounter %></p>
+      <p>Posts: <%= user.postscounter || 0 %></p>
       <p><%= user.photo %></p>
-      <% end %>
       <% end %>
       </li>
     
