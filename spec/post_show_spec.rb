@@ -3,7 +3,7 @@ require_relative 'rails_helper'
 RSpec.describe 'Posts show Page', type: :system do
     describe 'post page' do
       before(:each) do
-        @user = User.create(name: 'Nahnah', photo: 'https://i.imgur.com/9yG7zZT.jpg')
+        @user = User.create(name: 'Adnan', photo: 'https://i.imgur.com/9yG7zZT.jpg')
         @post = Post.create(title: 'Post 1', text: 'This is post 1', author: @user)
         @comment = Comment.create(text: 'This is the first comment', author: @user, post: @post)
         @comment2 = Comment.create(text: 'This is a comment', author: @user, post: @post)
@@ -17,7 +17,7 @@ RSpec.describe 'Posts show Page', type: :system do
       end
       
         it 'I can see the post\'s author.' do
-        expect(page).to have_content('Nahnah')
+        expect(page).to have_content('Adnan')
       end
 
         it 'I can see how many comments it has.' do
@@ -33,7 +33,7 @@ RSpec.describe 'Posts show Page', type: :system do
         end
 
         it 'I can the username of each commentor.' do
-        expect(page).to have_content('Nahnah')
+        expect(page).to have_content('Adnan')
         end
 
         it 'I can see the comment each commentor left.' do
