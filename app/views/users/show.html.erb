@@ -18,11 +18,25 @@
          <p>Number of post(s): <%= @user.postscounter || 0 %></p>
          </h6>
         </div>
+        <div>
+          <h3>Recent Posts</h3>
+          <div>
+            <% @user.query_posts.each do |post| %>
+              <a href='/posts/<%= post.id %>'>
+              <%= post.title %>
+              <%= post.text %>
+              </a>
+              <p>Comments:
+              <%= post.commentscounter || 0 %>
+                </p>
+                <p>likes: <%= post.likescounter || 0 %>
+                </p>
+                <% end %>
+          </div>
+        </div>
     </section>
 
-    <button>
         <a href='/users/<%= @user.id%>/posts'>See all posts</a>
-    </button>
 
     <button>
     <a href='/users/<%= @user.id%>/posts/new'>Create a new post</a>

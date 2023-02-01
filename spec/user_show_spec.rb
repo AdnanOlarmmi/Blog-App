@@ -46,15 +46,15 @@ RSpec.describe 'Users Show Page', type: :system do
     # When I click to see all posts, it redirects me to the user's post's index page.
     it 'redirects me to the users posts index page when I click the button' do
       click_link('See all posts')
-      expect(page).to have_content('Nahnah')
-      expect(page).to have_content('Number of posts: 4')
+      expect(page).to have_content('Adnan')
+      expect(page).to have_content('Number of post(s): 4')
       expect(page).to have_content('Post 4')
     end
 
     # When I click a user's post, it redirects me to that post's show page.
     it 'redirects me to the post show page when I click a post' do
       click_link('See all posts')
-      find(:link, 'See Post', match: :first).click
+      find(:link, 'See all posts', match: :first).click
       expect(page).to have_content('Post 1')
     end
   end
