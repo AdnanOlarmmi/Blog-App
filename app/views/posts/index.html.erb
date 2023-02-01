@@ -8,14 +8,25 @@
 
   <body>
    <h1>Here is the list of Posts for <span> <%= @user.name %>  </span><h1/>
+   <img  src='<%= @user.photo %>' alt="Avatar" />
    <p>Number of post(s): <%= @user.postscounter || 0 %></p>
 
     <ul>
     <li>
     <% @posts.each do |post| %>
       
-      <%= post.title %>
-      <%= post.text %>
+      <p><%= post.title %></p>
+      <p><%= post.text %></p>
+      <p>Comments:
+      <% post.query_comments.each do |comment| %>
+      
+        
+      <p><%= comment.text %></p>
+      <% end %>
+      </p>
+      </p>
+      
+      
       <a href='posts/<%= post.id %>'>
       <button>See post</button>
       </a>
@@ -27,5 +38,7 @@
       </p>
       <% end %>
     </ul>
+
+    <p class='pagination'><%= link_to 'Previous page' %></p>
   </body>
 </html>

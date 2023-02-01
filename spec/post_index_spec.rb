@@ -4,7 +4,7 @@ require_relative 'rails_helper'
 RSpec.describe 'Posts Index Page', type: :system do
   describe 'index page(I can see the user\'s profile picture)' do
     before(:each) do
-      @user = User.create(name: 'Nahnah', photo: 'https://i.imgur.com/9yG7zZT.jpg')
+      @user = User.create(name: 'Adnan', photo: 'https://i.imgur.com/9yG7zZT.jpg')
       @post = Post.create(title: 'Post 1', text: 'This is post 1', author: @user)
       @post2 = Post.create(title: 'Post 2', text: 'This is post 2', author: @user)
       @post3 = Post.create(title: 'Post 3', text: 'This is post 3', author: @user)
@@ -21,7 +21,7 @@ RSpec.describe 'Posts Index Page', type: :system do
       end
 
       it 'should show the name of the user' do
-      expect(page).to have_content('Nahnah')
+      expect(page).to have_content('Adnan')
       end
 
       it 'should show the number of the posts' do
@@ -53,8 +53,8 @@ RSpec.describe 'Posts Index Page', type: :system do
       end
 
       it 'When I click on a post, it redirects me to that post\'s show page.' do
-      find(:link, 'See Post', match: :first).click
-      expect(page).to have_content('Post 1')
+      find(:link, 'See post', match: :first).click
+      expect(page).to have_content('Post 4')
     end
 
   end
