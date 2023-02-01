@@ -13,15 +13,34 @@
         <div>
         <img  src="<%= @user.photo %>" alt="Avatar" />
          <h2><%= @user.name %></h2>
+          <h3><%= @user.bio %></h3>
          <h6>
          <p>Number of post(s): <%= @user.postscounter || 0 %></p>
          </h6>
         </div>
+        <div>
+          <h3>Recent Posts</h3>
+          <div>
+            <% @user.query_posts.each do |post| %>
+              <%= post.title %>
+              <%= post.text %>
+              <a href='<%= @user.id%>/posts/<%=post.id %>'>
+              <button>See post</button>
+              </a>
+              <p>Comments:
+              <%= post.commentscounter || 0 %>
+                </p>
+                <p>likes: <%= post.likescounter || 0 %>
+                </p>
+                <% end %>
+          </div>
+        </div>
     </section>
 
-    <button>
-        <a href='/users/<%= @user.id%>/posts'>See all posts</a>
-    </button>
+    
+        <a href='/users/<%= @user.id%>/posts'>
+        <button>See all posts</button></a>
+    
 
     <button>
     <a href='/users/<%= @user.id%>/posts/new'>Create a new post</a>

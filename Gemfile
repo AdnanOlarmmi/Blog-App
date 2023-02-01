@@ -72,7 +72,10 @@ end
 # end
 
 group :development, :test do
+  gem 'capybara'
   gem 'rspec-rails'
+  gem 'selenium-webdriver'
+  gem 'webdrivers'
 end
 
 gem 'rubocop', '>= 1.0', '< 2.0'

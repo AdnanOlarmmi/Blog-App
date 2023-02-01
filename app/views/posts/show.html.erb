@@ -8,7 +8,8 @@
 
   <body>
    <h1> Post Info <h1/>
-   <%= @post.text %>
+   <p><%= @post.text %></p>
+   <p><%= @post.title %></p>
     <p>Comments: <%= @post.commentscounter || 0 %> <br>
     <% @post.query_comments.each do |comment| %>
     <%= comment.text %>

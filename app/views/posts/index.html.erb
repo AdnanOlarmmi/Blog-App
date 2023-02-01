@@ -7,12 +7,28 @@
   </head>
 
   <body>
-   <h1>Here is the list of Posts<h1/>
+   <h1>Here is the list of Posts for <span> <%= @user.name %>  </span><h1/>
+   <img  src='<%= @user.photo %>' alt="Avatar" />
+   <p>Number of post(s): <%= @user.postscounter || 0 %></p>
+
     <ul>
     <li>
     <% @posts.each do |post| %>
+      
+      <p><%= post.title %></p>
+      <p><%= post.text %></p>
+      <p>Comments:
+      <% @comments.each do |comment| %>
+      
+        
+      <p><%= comment.text %></p>
+      <% end %>
+      </p>
+      </p>
+      
+      
       <a href='posts/<%= post.id %>'>
-      <%= post.text %>
+      <button>See post</button>
       </a>
     </li>
     <p>Comments:
@@ -22,5 +38,7 @@
       </p>
       <% end %>
     </ul>
+
+    <p class='pagination'><%= link_to 'Previous page' %></p>
   </body>
 </html>
