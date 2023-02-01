@@ -53,9 +53,8 @@ RSpec.describe 'Users Show Page', type: :system do
 
     # When I click a user's post, it redirects me to that post's show page.
     it 'redirects me to the post show page when I click a post' do
-      click_link('See all posts')
-      find(:link, 'See all posts', match: :first).click
-      expect(page).to have_content('Post 1')
+      find(:link, 'See post', match: :first).click
+      expect(page).to have_content('Post 4')
     end
   end
 end

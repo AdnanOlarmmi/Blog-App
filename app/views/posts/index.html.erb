@@ -7,12 +7,17 @@
   </head>
 
   <body>
-   <h1>Here is the list of Posts<h1/>
+   <h1>Here is the list of Posts for <span> <%= @user.name %>  </span><h1/>
+   <p>Number of post(s): <%= @user.postscounter || 0 %></p>
+
     <ul>
     <li>
     <% @posts.each do |post| %>
-      <a href='posts/<%= post.id %>'>
+      
+      <%= post.title %>
       <%= post.text %>
+      <a href='posts/<%= post.id %>'>
+      <button>See post</button>
       </a>
     </li>
     <p>Comments:

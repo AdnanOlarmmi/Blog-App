@@ -22,9 +22,10 @@
           <h3>Recent Posts</h3>
           <div>
             <% @user.query_posts.each do |post| %>
-              <a href='/posts/<%= post.id %>'>
               <%= post.title %>
               <%= post.text %>
+              <a href='<%= @user.id%>/posts/<%=post.id %>'>
+              <button>See post</button>
               </a>
               <p>Comments:
               <%= post.commentscounter || 0 %>
@@ -36,7 +37,10 @@
         </div>
     </section>
 
-        <a href='/users/<%= @user.id%>/posts'>See all posts</a>
+    
+        <a href='/users/<%= @user.id%>/posts'>
+        <button>See all posts</button></a>
+    
 
     <button>
     <a href='/users/<%= @user.id%>/posts/new'>Create a new post</a>
