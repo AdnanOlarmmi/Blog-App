@@ -12,7 +12,7 @@ RSpec.describe 'Posts Index Page', type: :system do
       @comment2 = Comment.create(text: 'This is a comment', author: @user, post: @post)
       @like = Like.create(author: @user, post: @post)
       @like2 = Like.create(author: @user, post: @post)
-      # visit user_posts_path(@user)
+      visit user_posts_path(@user)
     end
 
     it 'should show the profile picture for each user' do
