@@ -14,7 +14,7 @@ RSpec.describe 'Users Index Page', type: :system do
     end
 
     it 'shows the right content' do
-      expect(page).to have_content("Here is the list of Users")
+      expect(page).to have_content('Here is the list of Users')
     end
 
     it 'shows username of all other users' do

@@ -72,8 +72,8 @@ end
 # end
 
 group :development, :test do
-  gem 'rspec-rails'
   gem 'capybara'
+  gem 'rspec-rails'
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
