@@ -19,3 +19,40 @@ third_comment = Comment.create(author: third_user, post: third_post, text: 'This
 fourth_comment = Comment.create(author: first_user, post: fourth_post, text: 'This is my fourth comment')
 fifth_comment = Comment.create(author: second_user, post: first_post, text: 'This is my fifth comment')
 sixth_comment = Comment.create(author: third_user, post: second_post, text: 'This is my sixth comment')
+
+# PS C:\Users\USER\Documents\New Projects\Microverse\Module 5\blog-app> rails generate devise:install
+#       create  config/initializers/devise.rb
+#       create  config/locales/devise.en.yml
+# ===============================================================================
+
+# Depending on your application's configuration some manual setup may be required:
+
+#   1. Ensure you have defined default url options in your environments files. Here
+#      is an example of default_url_options appropriate for a development environment       
+#      in config/environments/development.rb:  
+
+#        config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }       
+
+#      In production, :host should be set to the actual host of your application.
+
+#      * Required for all applications. *      
+
+#   2. Ensure you have defined root_url to *something* in your config/routes.rb.
+#      For example:
+
+#        root to: "home#index"
+
+#      * Not required for API-only Applications *
+
+#   3. Ensure you have flash messages in app/views/layouts/application.html.erb.
+#      For example:
+
+#        <p class="notice"><%= notice %></p>   
+#        <p class="alert"><%= alert %></p>     
+#   4. You can copy Devise views (for customization) to your app by running:
+
+#        rails g devise:views
+
+#      * Not required *
+
+# ===============================================================================
