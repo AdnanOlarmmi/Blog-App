@@ -1,5 +1,17 @@
 # frozen_string_literal: true
+class TurboFailureApp < Devise::FailureApp
+  def respond
+    if request_format == :turbo_stream
+      redirect
+    else
+      super
+    end
+  end
 
+  def skip_format?
+    %w[html turbo_stream */*].include? request_format.to_s
+  end
+end
 # Assuming you have not yet modified this file, each configuration option below
 # is set to its default value. Note that some are commented out while others
 # are not: uncommented lines are intended to protect your configuration from
@@ -14,7 +26,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '3a147149cf141fe8530da381fa7636d05ba3378d475494eae369c66022d5a95696e22d9074a83fabbb0eba274c41e829e028fe0606bdfb79a34196edecb6fb82'
+  # config.secret_key = '450a6b2d6feccdcced809babd8f6282f29df33a681040083aa19aef74e6befa895411a3b62f12145e9c352eb80b06d163e215d8249ef0b58130305ad0868c567'
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -70,7 +82,7 @@ Devise.setup do |config|
   # given strategies, for example, `config.params_authenticatable = [:database]` will
   # enable it only for database (email + password) authentication.
   # config.params_authenticatable = true
-
+  config.navigational_formats = ['*/*', :html, :turbo_stream]
   # Tell if authentication through HTTP Auth is enabled. False by default.
   # It can be set to an array that will enable http authentication only for the
   # given strategies, for example, `config.http_authenticatable = [:database]` will
@@ -126,7 +138,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 12
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = '42f5d02ee9d550d22f3f1184a4ca03b20cef7f7974298a68b8f5784cfbf271dd3deee3450aa7b3b07cc49241985650108b705c5ae0291398342a21257b17d53a'
+  # config.pepper = 'bffda81356ad2428b432511b6aae0ae65024d60ceb12f6141f9e9e14cad0095c63b2f453bb7ee9721b105e121a5c70ee666446e01298b4476bbc173ed3d43336'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
@@ -244,7 +256,7 @@ Devise.setup do |config|
   # Turn scoped views on. Before rendering "sessions/new", it will first check for
   # "users/sessions/new". It's turned off by default because it's slower if you
   # are using only default views.
-  # config.scoped_views = false
+  config.scoped_views = true
 
   # Configure the default scope given to Warden. By default it's the first
   # devise role declared in your routes (usually :user).
@@ -281,6 +293,9 @@ Devise.setup do |config|
   #   manager.intercept_401 = false
   #   manager.default_strategies(scope: :user).unshift :some_external_strategy
   # end
+  config.warden do |manager|
+    manager.failure_app = TurboFailureApp
+  end 
 
   # ==> Mountable engine configurations
   # When using Devise inside an engine, let's call it `MyEngine`, and this engine
