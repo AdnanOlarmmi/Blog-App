@@ -7,6 +7,7 @@
   </head>
 
   <body>
+  <%= button_to "Sign out", destroy_user_session_path, method: :delete %>
    <h1>Here is the list of Posts for <span> <%= @user.name %>  </span><h1/>
    <img  src='<%= @user.photo %>' alt="Avatar" />
    <p>Number of post(s): <%= @user.postscounter || 0 %></p>
