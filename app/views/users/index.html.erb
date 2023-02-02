@@ -8,6 +8,8 @@
   </head>
 
   <body>
+  <%= button_to "Sign Out", destroy_user_session_path, method: :delete %>
+
    <h1>Here is the list of Users<h1/>
     <ul>
     <% @users.each do |user| %>
