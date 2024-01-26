@@ -29,8 +29,8 @@ development:
   adapter: postgresql
   encoding: unicode
   database: blog-app_db
-  username: postgres
-  password: olamilekan
+  username: <%= ENV["BLOG_APP_DATABASE_USERNAME"] %>
+  password: <%= ENV["BLOG_APP_DATABASE_PASSWORD"] %>
   pool: 5
   timeout: 5000
 
@@ -69,8 +69,8 @@ test:
   adapter: postgresql
   encoding: unicode
   database: blog-app_test
-  username: postgres
-  password: olamilekan
+  username: <%= ENV["BLOG_APP_DATABASE_USERNAME"] %>
+  password: <%= ENV["BLOG_APP_DATABASE_PASSWORD"] %>
   pool: 5
   timeout: 5000
 
@@ -99,8 +99,8 @@ production:
   adapter: postgresql
   encoding: unicode
   database: blog-app_db
-  username: postgres
-  password: olamilekan
+  username: <%= ENV["BLOG_APP_DATABASE_USERNAME"] %>
+  password: <%= ENV["BLOG_APP_DATABASE_PASSWORD"] %>
   pool: 5
   timeout: 5000
 
